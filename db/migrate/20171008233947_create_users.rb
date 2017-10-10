@@ -6,9 +6,8 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :password_digest
       t.string :img_url
       t.boolean :active
-      t.boolen :admin
+      t.boolean :admin
       t.integer :zip_code
-      t.integer :id
       t.string :phone
 
       t.timestamps
