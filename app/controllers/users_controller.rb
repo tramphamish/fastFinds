@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def new
-
+    render :new
   end
 
   def create
@@ -16,4 +16,5 @@ class UsersController < ApplicationController
     else
       redirect_to '/'
     end
+  end
 end

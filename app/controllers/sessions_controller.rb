@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-
+    render :new
   end
 
   def create
@@ -11,8 +11,10 @@ class SessionsController < ApplicationController
       flash[:success] = "Successfully logged in!"
       redirect_to "/show"
     else
+      flash[:warning] = "Invalid E-Mail or password!"
       redirect_to "/"
     end
+  end
 
     def destroy
       session[:user_id] = nil

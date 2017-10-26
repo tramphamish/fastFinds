@@ -1,17 +1,21 @@
 <h1> Sign Up </h1>
 <%= form_tag "/users", method: :post do %>
   <div>
-    Name: <input type="text" name="first_name">
+    <%= label_tag :first_name %>
+    <%= text_field_tag :first_name %>
   </div>
   <div>
-    E-Mail: <input type="email" name="email">
-  </div>
-  <div> 
-    Password: <input type="password" name="password">
+    <%= label_tag :email %>
+    <%= email_field_tag :email %>
   </div>
   <div>
-    Reytpe password: <input type="password" name="password_confirmation">
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
   </div>
-  <input type="submit" value="SIGN ME UP">
+  <div>
+    <%= label_tag :password_confirmation %>
+    <%= password_field_tag :password_confirmation %>
+  </div>
+  <%= submit_tag "SIGN ME UP!" %>
   
-  <% end %>
+<% end %>
