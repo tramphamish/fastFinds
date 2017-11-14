@@ -1,27 +1,31 @@
 class UsersController < ApplicationController
-  
-  before_action :authenticate_admin!, except:[:new]
+
   def new
     render :new
   end
 
   def create
-    @user = User.new(
+    user = User.new(
       first_name: params[:first_name],
+      last_name: params[:last_name],
       email: params[:email],
+      zip_code: params[:zip_code],
+      active: true,
+      admin: false,
       password: params[:password],
       password_confirmation: params[:password_confirmation])
     if user.save
       session[:user_id] = user.id
       flash[:success] = 'Successfully created account!'
-      redirect_to 'show'
-    else
       redirect_to '/'
+    else
+      flash[:warning] = 'Invalid E-Mail or Password'
+      redirect_to '/signup'
     end
   end
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   def edit
@@ -32,7 +36,7 @@ class UsersController < ApplicationController
     @user = User.find_by(
       email: params[:email])
     if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
+      session[:id] = user.id
       @user.first_name = params[:first_name]
       @user.last_name = params[:last_name]
       @user.email = params[:email]
@@ -40,12 +44,12 @@ class UsersController < ApplicationController
       @user.zip_code = params[:zip_code]
       @user.phone = params[:phone]
       @user.password = params[:password]
-      if @user.save
+        if @user.save
         flash[:success] = "Info has been successfully updated!"
-        redirect_to "/user/#{@user.id}"
-      else
+        redirect_to '/users/#{@user.id}'
+        else
         render :edit
+        end
       end
     end
-  end
 end

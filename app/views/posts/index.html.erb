@@ -1,0 +1,15 @@
+<div id="app">
+  <h1>{{ message }}</h1>
+
+  <p>
+    <ul>
+      <li v-for="post in posts">User: {{ post["user"] }} Stars: {{ post["rating"] }} {{ post["text"] }}</li>
+    </ul>
+  </p>
+
+  <h3>Add a Post:</h3>
+  <p>Post: <input v-model='newPostText'>
+  Rating: <input v-model='newPostRating'>
+  User: <input v-model='newPostUser'></p>
+  <button v-on:click="addPost()">Save New Post</button>
+</div>

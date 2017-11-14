@@ -1,18 +1,17 @@
-<div>
-  <h1>Fast Finds</h1>
-  <%= form_tag "/", method: :get do %>
-    <div>
-      <form class="form-inline">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Find">
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Near">
-        </div>
-        <button type="submit" class="btn btn-default">Search</button>
-      </form>
-    </div>
-  <% end %>
+<div id="app">
+  
+  <h1><a href="/">Fast Finds</a></h1>
 
-  <h3>Find whatcha cravin' for now at any fast-food chain!</h3>
-  </div>  
+  <div>
+    <h3>Find:<input v-model="restaurantFilter" list="restaurant"></h3>
+  </div>
+ 
+  <div>
+    <h3>Near:<input v-model="locationFilter" list="location"></h3>
+  </div>
+
+  <div>
+    <button v-on:click="Search">Search</button>
+
+</div>
+

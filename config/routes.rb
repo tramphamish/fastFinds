@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 get "/" =>  "fast_food_chains#index"
-get "/fast_food_chains" => "fast_food_chains#show"
+get "/fast_food_chains/:id" => "fast_food_chains#show"
+get "/posts" => "posts#index"
 
 get "/signup" => "users#new"
 post "/users" => "users#create"
