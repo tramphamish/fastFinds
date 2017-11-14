@@ -3,41 +3,44 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var app = new Vue({
     el: '#app',
     data: {
-      savedSearchItem [],
-      food []
+      message: "Fast Finds",
+      resultElement: [],
+      food: []
     },
   mounted: {
       
     },
     methods: {
-      userSearchAttribute: function(userInput) {
-      var savedSearchItem = this; 
-      $('.resultContainer').html('');
-        axios.get('https://api.nutritionix.com/v1_1/search/taco?results=0%3A50&cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id&appId=2a67dbb4&appKey=eab1d2899f63f45de8177c6e513b443a'),
-        .then(function (food) {
-          savedSearchItem = food.hits;
-          }
-        });
+      function userSearchAttribute(userInput) {
+      var resultElement = document.getElementById('getResult'); 
+      resultElement.innerHTML = '';
 
-        console.log(savedSearchItem);
+        axios.get('https://api.nutritionix.com/v1_1/search/' + userInput + '?' + 'results=0%3A50&cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id&appId=2a67dbb4&appKey=eab1d2899f63f45de8177c6e513b443a')
+        .then(function (response) {
+          resultElement.innerHTML = generateSuccessHTMLOutput(response);
+        })
+        .catch(function (error) {
+          resultElement.innerHTML = generateErrorHTMLOutput(error);
+        });
       }
 
-      savedSearchItem.map(funtion(item) {
+      resultElement.map(function (item) {
         var a = item.fields
         $('.resultContainer').append(
           '<div class="itemBar">' +
-            '<h2>' + a.item.item_name + '<h2>' +
+            '<h2>' + a.item_name + '<h2>' +
             '<h3>' + a.brand_name + '<h3>' +
           '</div>'
           );
-      };
-      searchValue() {
+      });
+    }
+      function searchValue() {
         var formVal = document.getElementById('searchBar').value;
         getResult(formVal);
       }
 
-      $('#searchForm').submit(function(s) {
-        s.preventDefault();
+      $('#searchForm').submit(function(x) {
+        x.preventDefault();
       });
     },
     computed: {

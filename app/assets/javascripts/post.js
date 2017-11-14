@@ -1,7 +1,7 @@
 /* global Vue */
 document.addEventListener("DOMContentLoaded", function(event) { 
   var app = new Vue({
-    el: '#app',
+    el: '#post',
     data: {
       message: "User Deals:",
       posts: [
