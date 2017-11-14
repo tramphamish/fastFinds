@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     if user.save
       session[:user_id] = user.id
       flash[:success] = 'Successfully created account!'
-      redirect_to '/'
+      redirect_to '/user/#{@user.id}'
     else
       flash[:warning] = 'Invalid E-Mail or Password'
       redirect_to '/signup'
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
       @user.password = params[:password]
         if @user.save
         flash[:success] = "Info has been successfully updated!"
-        redirect_to '/users/#{@user.id}'
+        redirect_to '/user/#{@user.id}'
         else
         render :edit
         end

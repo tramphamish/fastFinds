@@ -1,13 +1,43 @@
-<h1>Log In</h1>
-<%= form_tag "/login", method: :post do %>
-<div>
-  <%= label_tag :email %>
-  <%= email_field_tag :email %>
-</div>
-<div>
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-</div>
-<%= submit_tag "LOG IN!" %>
-  
-  <% end %>
+<body class="body-wrapper">
+  <div class="page-loader" style="background: url(/img/preloader.gif) center no-repeat #fff;"></div>
+  <div class="main-wrapper">
+
+<!-- LOGIN SECTION -->
+<section class="clearfix loginSection">
+  <div class="container">
+    <div class="row">
+      <div class="center-block col-md-5 col-sm-6 col-xs-12">
+        <div class="panel panel-default loginPanel">
+          <div class="panel-heading text-center">Members log in</div>
+            <%= form_tag "/login", method: :post do %>
+          <div class="panel-body">
+            <form class="loginForm">
+              <div class="form-group">
+                <div>
+                  <%= label_tag :email %>
+                  <%= email_field_tag :email %>
+                </div>
+                <p class="help-block">Enter your E-Mail.</p>
+              </div>
+              <div class="form-group">
+                <div>
+                  <%= label_tag :password %>
+                  <%= password_field_tag :password %>
+                </div>
+                <p class="help-block">Enter the password that accompanies your username.</p>
+              </div>
+              <div class="form-group">
+                <%= submit_tag " LOG IN! " %>
+              <% end %>
+              </div>
+            </form>
+          </div>
+          <div class="panel-footer text-center">
+            <p>Not a member yet? <a href="/signup" class="link">Sign up</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
