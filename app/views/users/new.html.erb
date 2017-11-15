@@ -3,21 +3,18 @@
   <!-- SITE TITTLE -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>All business - Listty</title>
+  <title>Sign Up - Fast Finds</title>
 
   <!-- PLUGINS CSS STYLE -->
-  <link href="plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet">
-  <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="plugins/listtyicons/style.css" rel="stylesheet">
-  <link href="plugins/bootstrapthumbnail/bootstrap-thumbnail.css" rel="stylesheet">
-  <link href="plugins/datepicker/datepicker.min.css" rel="stylesheet">
-  <link href="plugins/selectbox/select_option1.css" rel="stylesheet">
-  <link href="plugins/owl-carousel/owl.carousel.min.css" rel="stylesheet">
-  <link href="plugins/fancybox/jquery.fancybox.pack.css" rel="stylesheet">
-  <link href="plugins/isotope/isotope.min.css" rel="stylesheet">
-  <link href="plugins/map/css/map.css" rel="stylesheet">
+  <link href="/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+  <link href="/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/plugins/bootstrapthumbnail/bootstrap-thumbnail.css" rel="stylesheet">
+  <link href="/plugins/datepicker/datepicker.min.css" rel="stylesheet">
+  <link href="/plugins/selectbox/select_option1.css" rel="stylesheet">
+  <link href="/plugins/fancybox/jquery.fancybox.pack.css" rel="stylesheet">
+  <link href="/plugins/isotope/isotope.min.css" rel="stylesheet">
+  <link href="/plugins/map/css/map.css" rel="stylesheet">
 
   <!-- GOOGLE FONT -->
   <link href="https://fonts.googleapis.com/css?family=Muli:200,300,400,600,700,800,900" rel="stylesheet">
@@ -26,10 +23,10 @@
   <link href="https://fonts.googleapis.com/css?family=Herr+Von+Muellerhoff" rel="stylesheet">
 
   <!-- CUSTOM CSS -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
 
   <!-- FAVICON -->
-  <link href="img/favicon.png" rel="shortcut icon">
+  <link href="/img/favicon.png" rel="shortcut icon">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -71,33 +68,29 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
+              <h1><a class="navbar-brand" href="/"> Fast Finds</a></h1>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                  <li class=""><a href="/">home </a></li>
-                  <li class=""><a href="/userdeals">user deals </a></li>
-                  </li>
-                  <li class="active dropdown singleDrop">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">pages <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-left">
-                      <li><a href="/signup">Create Account</a></li>
-                      <li><a href="/login">Login</a></li>
-                    </ul>
-                  </li>
-                  <li class=" dropdown singleDrop">
-                    <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">admin <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-right">
-                      <li><a href="add-listings.html">Add Listing</a></li>
-                      <li><a href="edit-listings.html">Edit Listing</a></li>
-                      <li><a href="listings.html">My Listings</a></li>
-                      <li><a href="profile.html">My Profile</a></li>
-                    </ul>
-                  </li>
-                </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li class=""><a href="/">home </a></li>
+                <li class=""><a href="/posts">user deals </a></li>
+                <li class=""><a href="/near">near me </a></li>
+                <li class=" dropdown singleDrop">
+                  <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">account <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-right">
+                    <% if current_user %>
+                      <li> Hey <%= current_user.first_name %>!</li><li><a href="/user/#{@user.id}/edit">my profile</a></li>
+                      <li><a href="/logout"> log out</a></li>
+                    <% else %>
+                      <li><a href="/signup">sign up</a></li>
+                      <li><a href="/login">login</a></li>
+                    <% end %>
+                  </ul>
+                </li>
+              </ul>
             </div>
-            <button class="btn btn-default navbar-btn" type="button" data-toggle="modal" data-target="#loginModal"> + <span>Add Listing</span> </button>
           </div>
         </nav>
       </div>
@@ -121,37 +114,13 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-4 col-xs-12">
-        <div class="priceTableWrapper">
-          <div class="priceTableTitle">
-            <h2>Why Sign up?</h2>
-          </div>
-              <div class="checkbox-radio marginCheck">
-                <input id="radio41" type="radio" name="radio" value="41">
-                <label for="radio41">
-                  <span><span></span></span>Saved Preferences
-                </label>
-              </div>
-              <div class="checkbox-radio marginCheck">
-                <input id="radio42" type="radio" name="radio" value="42">
-                <label for="radio42">
-                  <span><span></span></span>Post in User Deals
-                </label>
-              </div>
-              <div class="checkbox-radio marginCheck">
-                <input id="radio43" type="radio" name="radio" value="43">
-                <label for="radio43">
-                  <span><span></span></span>Added keywords
-                </label>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
       <div class="col-sm-8 col-xs-12">
         <div class="signUpFormArea">
           <div class="priceTableTitle">
             <h2>Account Registration</h2>
-            <p>Please fill out the fields below to create your account. We will send your account information to the email address you enter. Your email address and information will NOT be sold or shared with any 3rd party. If you already have an account, please, <a href="/login.html">click here</a>.</p>
+            <p>Please fill out the fields below to create your account. If you already have an account, please, <a href="/login">click here</a>.</p>
           </div>
           <div class="signUpForm">
             <%= form_tag "/users", method: :post do %>
@@ -159,22 +128,16 @@
                 <h3>Contact Information</h3>
                 <div class="row">
                   <div class="form-group col-sm-6 col-xs-12">
-                    <div>
-                      <%= label_tag :first_name %>
-                      <%= text_field_tag :first_name %>
-                    </div>
+                    <label for="first_name" class="control-label">First Name*</label>
+                    <input type="text" class="form-control" id="first_name" name="first_name">
                   </div>
                   <div class="form-group col-sm-6 col-xs-12">
-                    <div>
-                      <%= label_tag :last_name %>
-                      <%= text_field_tag :last_name %>
-                    </div>
+                    <label for="last_name" class="control-label">Last Name*</label>
+                    <input type="text" class="form-control" id="last_name" name="last_name">
                   </div>
                   <div class="form-group col-xs-12">
-                    <div>
-                      <%= label_tag :email %>
-                      <%= email_field_tag :email %>
-                    </div>
+                    <label for="email" class="control-label">E-Mail*</label>
+                    <input type="email" class="form-control" id="email" name="email">
                   </div>
                 </div>
               </div>
@@ -182,31 +145,38 @@
                 <h3>Account Information</h3>
                 <div class="row">
                   <div class="form-group col-xs-12">
-                    <div>
-                      <%= label_tag :zip_code %>
-                      <%= text_field_tag :zip_code %>
-                    </div>
+                    <label for="phone" class="control-label">Phone*</label>
+                    <input type="text" class="form-control" id="phone" name="phone">
+                  </div>
+                  <div class="form-group col-xs-12">
+                    <label for="zip_code" class="control-label">Zip Code*</label>
+                    <input type="text" class="form-control" id="zip_code" name="zip_code">
                   </div>
                   <div class="form-group col-sm-6 col-xs-12">
-                    <div>
-                      <%= label_tag :password %>
-                      <%= password_field_tag :password %>
-                    </div>
+                    <label for="passwordFirst" class="control-label">Password*</label>
+                    <input type="password" class="form-control" id="password" name="password">
                   </div>
                   <div class="form-group col-sm-6 col-xs-12">
-                    <div>
-                      <%= label_tag :password_confirmation %>
-                      <%= password_field_tag :password_confirmation %>
-                    </div>
+                    <label for="passwordAgain" class="control-label">Password (re-type)*</label>
+                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
                   </div>
                 </div>
               </div>
+              <div class="formSection">
+                <div class="row">
+                  <div class="form-group col-xs-12">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox">
+                        Sign me up for the E-Mail subcription.
+                      </label>
+                    </div>
+                  </div>
                   <div class="form-group col-xs-12 mb0">
-                      <%= submit_tag " SIGN ME UP! " %>
-                    <% end %>
+                    <button type="submit" class="btn btn-primary" value="Submit">Create Account</button>
                   </div>
+                  <% end %>
                 </div>
-              </div>
               </div>
             </form>
           </div>
@@ -216,4 +186,27 @@
   </div>
 </section>
 
+  <!-- JAVASCRIPTS -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+  <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+  <script src="plugins/smoothscroll/SmoothScroll.min.js"></script>
+  <script src="plugins/waypoints/waypoints.min.js"></script>
+  <script src="plugins/counter-up/jquery.counterup.min.js"></script>
+  <script src="plugins/datepicker/bootstrap-datepicker.min.js"></script>
+  <script src="plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
+  <script src="plugins/owl-carousel/owl.carousel.min.js"></script>
+  <script src="plugins/isotope/isotope.min.js"></script>
+  <script src="plugins/fancybox/jquery.fancybox.pack.js"></script>
+  <script src="plugins/isotope/isotope-triger.min.js"></script>
+<!--   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEDfNcQRmKQEyulDN8nGWjLYPm8s4YB58"></script> -->
+  <script src="plugins/map/js/rich-marker.js"></script>
+  <script src="plugins/map/js/infobox_packed.js"></script>
+  <script src="js/single-map.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/custom.js"></script>
+
 </body>
+
+</html>
+

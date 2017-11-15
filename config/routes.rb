@@ -5,7 +5,6 @@ get "/posts" => "posts#index"
 
 get "/signup" => "users#new"
 post "/users" => "users#create"
-get "/user/:id" => "users#show"
 get "/user/:id/edit" => "users#edit"
 patch "/user/:id" => "users#update"
 
