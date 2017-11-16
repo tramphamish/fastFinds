@@ -14,7 +14,6 @@
   <link href="/plugins/selectbox/select_option1.css" rel="stylesheet">
   <link href="/plugins/fancybox/jquery.fancybox.pack.css" rel="stylesheet">
   <link href="/plugins/isotope/isotope.min.css" rel="stylesheet">
-  <link href="/plugins/map/css/map.css" rel="stylesheet">
 
   <!-- GOOGLE FONT -->
   <link href="https://fonts.googleapis.com/css?family=Muli:200,300,400,600,700,800,900" rel="stylesheet">
@@ -38,7 +37,7 @@
 </head>
 
 <body class="body-wrapper">
-  <div class="page-loader" style="background: url(/img/preloader.gif) center no-repeat #fff;"></div>
+  <div class="page-loader" style="background: url(img/preloader.gif) center no-repeat #fff;"></div>
   <div class="main-wrapper">
     <!-- HEADER -->
     <header id="pageTop" class="header">
@@ -76,7 +75,6 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class=""><a href="/">home </a></li>
                 <li class=""><a href="/posts">user deals </a></li>
-                <li class=""><a href="/near">near me </a></li>
                 <li class=" dropdown singleDrop">
                   <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">account <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                   <ul class="dropdown-menu dropdown-menu-right">
@@ -149,28 +147,9 @@
             </div>
           </div>
           <div class="btn-area mt30">
-            <button class="btn btn-primary" type="button">Save Changes</button>
-            <input type="submit" value="update"
+            <button class="btn btn-primary" type="button" input type="sumbit">Save Changes</button>
           </div>
           <% end %>
-          <div class="dashboardBoxBg mt30">
-            <div class="profileIntro">
-              <h3>Update password</h3>
-              <%= form_tag "/user/#{@user.id}", method: :patch do %>
-              <div class="row">
-                <div class="form-group col-xs-12">
-                  <label for="newPassword">New Password</label>
-                  <input type="password" class="form-control" id="password" placeholder="New Password" name="password" value="password">
-                </div>
-                <div class="form-group col-xs-12">
-                  <label for="confirmPassword">Confirm Password</label>
-                  <input type="password" class="form-control" id="password_confirmation" placeholder="Confirm Password" name="password_confirmation" value="password_confirmation">
-                </div>
-                <div class="form-group col-xs-12">
-                  <button class="btn btn-primary" type="button">Change Password</button>
-                </div>
-                <% end %>
-              </div>
             </div>
           </div>
         </form>
@@ -185,16 +164,12 @@
   <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
   <script src="/plugins/smoothscroll/SmoothScroll.min.js"></script>
   <script src="/plugins/waypoints/waypoints.min.js"></script>
-  <script src="/plugins/counter-up/jquery.counterup.min.js"></script>
   <script src="/plugins/datepicker/bootstrap-datepicker.min.js"></script>
   <script src="/plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
   <script src="/plugins/rwdtable/js/rwd-table.min.js"></script>
-  <script src="/plugins/owl-carousel/owl.carousel.min.js"></script>
   <script src="/plugins/isotope/isotope.min.js"></script>
   <script src="/plugins/fancybox/jquery.fancybox.pack.js"></script>
   <script src="/plugins/isotope/isotope-triger.min.js"></script>
-<!--   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClFnfaRfKDYKClReKiDzZfCNASIX_4HuI"></script> -->
-  <script src="/js/map.js"></script>
   <script src="/js/custom.js"></script>
 
 </body>

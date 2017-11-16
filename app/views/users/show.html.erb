@@ -3,14 +3,12 @@
   <!-- SITE TITTLE -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Member Login - Fast Finds</title>
+  <title>Profile - Fast Finds</title>
 
   <!-- PLUGINS CSS STYLE -->
   <link href="/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet">
   <link href="/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="/plugins/listtyicons/style.css" rel="stylesheet">
   <link href="/plugins/bootstrapthumbnail/bootstrap-thumbnail.css" rel="stylesheet">
   <link href="/plugins/datepicker/datepicker.min.css" rel="stylesheet">
   <link href="/plugins/selectbox/select_option1.css" rel="stylesheet">
@@ -81,7 +79,7 @@
                   <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">account <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                   <ul class="dropdown-menu dropdown-menu-right">
                     <% if current_user %>
-                      <li> Hey <%= current_user.first_name %>!</li><li><a href="/user/#{@user.id}/edit">my profile</a></li>
+                      <li> Hey <%= current_user.first_name %>!</li><li><a href="/user/#{@user.id}">my profile</a></li>
                       <li><a href="/logout"> log out</a></li>
                     <% else %>
                       <li><a href="/signup">sign up</a></li>
@@ -96,36 +94,63 @@
       </div>
     </header>
 
-<!-- LOGIN SECTION -->
-<section class="clearfix loginSection">
+<!-- DASHBOARD PROFILE SECTION -->
+<section class="clearfix bg-dark profileSection">
   <div class="container">
     <div class="row">
-      <div class="center-block col-md-5 col-sm-6 col-xs-12">
-        <div class="panel panel-default loginPanel">
-          <div class="panel-heading text-center">Members log in</div>
-          <%= form_tag "/login", method: :post do %>
-          <div class="panel-body">
-            <form class="loginForm">
-              <div class="form-group">
-                <label for="email">E-Mail *</label>
-                <input type="email" class="form-control" id="email" name="email">
-                <p class="help-block">Enter your E-Mail address.</p>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 col-sm-5 col-xs-12">
+              <div class="dashboardBoxBg mb30">
+                <div class="profileImage">
+                  <img src="<%= @user.img_url %>" width="220" height="220" alt ="stock-profile-pic.jpg" class="img-circle">
+                  </div>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="password">Password *</label>
-                <input type="password" class="form-control" id="password" name="password">
-                <p class="help-block">Enter the password that accompanies your E-Mail.</p>
-              </div>
-              <div class="form-group">
-                <button type="submit" class="btn btn-primary pull-left" value="Log In">Log In</button>
-              </div>
-              <% end %>
-            </form>
-          </div>
-          <div class="panel-footer text-center">
-            <p>Not a member yet? <a href="/signup" class="link">Sign up</a></p>
+            </div>
           </div>
         </div>
+      </div>
+      <div class="col-md-8 col-sm-7 col-xs-12">
+        <form>
+          <div class="dashboardBoxBg">
+            <div class="profileIntro">
+              <h2>Profile</h2>
+            </div>
+          </div>
+          <div class="dashboardBoxBg mt30">
+            <div class="profileIntro">
+              <h3>About You</h3>
+              <div class="row">
+                <div class="form-group col-sm-6 col-xs-12">
+                  <label for="firstNameProfile">First Name</label>
+                  <input type="text" class="form-control" id="first_name" name="first_name" placeholder="<%= @user.first_name %>" value="<%= @user.first_name %>">
+                </div>
+                <div class="form-group col-sm-6 col-xs-12">
+                  <label for="lastNameProfile">Last Name</label>
+                  <input type="text" class="form-control" id="last_name" name="last_name" placeholder="<%= @user.last_name %>" value="<%= @user.last_name %>">
+                </div>
+                <div class="form-group col-sm-6 col-xs-12">
+                  <label for="emailProfile">E-Mail</label>
+                  <input type="text" class="form-control" id="email" name="email" placeholder="<%= @user.email %>" value="<%= @user.email %>">
+                </div>
+                <div class="form-group col-sm-6 col-xs-12">
+                  <label for="phoneProfile">Phone</label>
+                  <input type="text" class="form-control" id="phone" name="phone" placeholder="<%= @user.phone %>" value="<%= @user.phone %>">
+                </div>
+                <div class="form-group col-sm-6 col-xs-12">
+                  <label for="zipCodeProfile">Zip Code</label>
+                  <input type="integer" class="form-control" id="zip_code" name="zip_code" placeholder="<%= @user.zip_code %>" value="<%= @user.zip_code %>">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="btn-area mt30">
+            <button class="btn btn-primary" type="button" input type="sumbit"><a href="/user/#{@user.id}/edit">Update Info</button>
+          </div>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -137,9 +162,9 @@
   <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
   <script src="/plugins/smoothscroll/SmoothScroll.min.js"></script>
   <script src="/plugins/waypoints/waypoints.min.js"></script>
-  <script src="/plugins/counter-up/jquery.counterup.min.js"></script>
   <script src="/plugins/datepicker/bootstrap-datepicker.min.js"></script>
   <script src="/plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
+  <script src="/plugins/rwdtable/js/rwd-table.min.js"></script>
   <script src="/plugins/isotope/isotope.min.js"></script>
   <script src="/plugins/fancybox/jquery.fancybox.pack.js"></script>
   <script src="/plugins/isotope/isotope-triger.min.js"></script>

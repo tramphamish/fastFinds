@@ -3,6 +3,7 @@
   <!-- SITE TITTLE -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Home - Fast Finds</title>
 
   <!-- PLUGINS CSS STYLE -->
@@ -14,7 +15,6 @@
   <link href="/plugins/selectbox/select_option1.css" rel="stylesheet">
   <link href="/plugins/fancybox/jquery.fancybox.pack.css" rel="stylesheet">
   <link href="/plugins/isotope/isotope.min.css" rel="stylesheet">
-  <link href="/plugins/map/css/map.css" rel="stylesheet">
 
   <!-- GOOGLE FONT -->
   <link href="https://fonts.googleapis.com/css?family=Muli:200,300,400,600,700,800,900" rel="stylesheet">
@@ -68,6 +68,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
+              <h1><a class="navbar-brand" href="/"> Fast Finds</a></h1>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -75,7 +76,6 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class=""><a href="/">home </a></li>
                 <li class=""><a href="/posts">user deals </a></li>
-                <li class=""><a href="/near">near me </a></li>
                 <li class=" dropdown singleDrop">
                   <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">account <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                   <ul class="dropdown-menu dropdown-menu-right">
@@ -109,13 +109,6 @@
                 <div class="input-group-addon">Find</div>
                 <input type="text" class="form-control" id="searchBar" placeholder="What are you looking for?">
                 <div class="input-group-addon addon-right"></div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group">
-                <div class="input-group-addon">Near</div>
-                <input type="text" class="form-control" id="nearLocation" placeholder="Location">
-                <div class="input-group-addon addon-right"><i class="icon-listy icon-target" aria-hidden="true"></i></div>
               </div>
             </div>
             <button type="submit" class="btn btn-primary">Search <i class="fa fa-search" aria-hidden="true" onclick='searchValue()'></i></button>
