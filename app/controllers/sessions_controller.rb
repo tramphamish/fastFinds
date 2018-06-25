@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:success] = "Successfully logged in!"
-      redirect_to "/user/#{@user.id}/edit"
+      redirect_to "/"
     else
       flash[:warning] = "Invalid E-Mail or password!"
       redirect_to "/login"

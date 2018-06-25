@@ -6,9 +6,9 @@ get "/posts" => "posts#index"
 
 get "/signup" => "users#new"
 post "/users" => "users#create"
-get "/user/:id" => "users#show"
-get "/user/:id/edit" => "users#edit"
-patch "/user/:id" => "users#update"
+get "/users/:id" => "users#show"
+get "/users/:id/edit" => "users#edit"
+patch "/users/:id" => "users#update"
 
 get "/login" => "sessions#new"
 post "/login" => "sessions#create"

@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:success] = 'Successfully created account!'
-      redirect_to '/user/#{@user.id}/edit'
+      redirect_to '/'
     else
       redirect_to "/signup"
     end
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
   end
 
   def update
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
       @user.password = params[:password]
         if @user.save
           flash[:success] = "Info has been successfully updated!"
-          redirect_to '/user/#{@user.id}'
+          redirect_to '/users/#{@user.id}'
         else
           render :edit
         end
